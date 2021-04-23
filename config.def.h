@@ -29,7 +29,7 @@ static const char *colors[][3]      = {
 static const char *const autostart[] = {
 	"autorandr", "--change", NULL,
 	"hsetroot", "-cover", "/home/tim/Pictures/background.jpg", NULL,
-	"sh", "-c", "while :; do xsetroot -name \"$(LC_ALL=de_DE.utf8 date +\'%A, %d. %B %Y, %R \')\";"
+	"sh", "-c", "while :; do xsetroot -name \"$(LC_ALL=de_DE.utf8 date +\'%A, %d. %B %Y, %R \'), $(cat /sys/class/power_supply/BAT0/status)%\";"
 	"if [[ \"$(cat /sys/class/power_supply/BAT0/status)\" = \"Discharging\" && $(cat /sys/class/power_supply/BAT0/capacity) -lt 10 ]];"
 	"then dunstify \"Battery at $(cat /sys/class/power_supply/BAT0/capacity)%!\"; fi; sleep 60; done", NULL,
 	"xset", "b", "off", NULL, "mpris-proxy", NULL, "udiskie", NULL, "dunst", NULL,
