@@ -27,8 +27,8 @@ static const char *colors[][3]      = {
 
 static const char *const autostart[] = {
 	"autorandr", "--change", NULL,
-	"hsetroot", "-solid", "\"#15191B\"", NULL,
-	"sh", "-c", "while :; do xsetroot -name \"$(LC_ALL=de_DE.utf8 date +\'%A, %d. %B %Y, %R \'), $(cat /sys/class/power_supply/BAT0/status)%\";"
+	"hsetroot", "-solid", "\'#15191B\'", NULL,
+	"sh", "-c", "while :; do xsetroot -name \"$(LC_ALL=de_DE.utf8 date +\'%A, %d. %B %Y, %R\'), $(cat /sys/class/power_supply/BAT0/capacity)%\";"
 	"if [[ \"$(cat /sys/class/power_supply/BAT0/status)\" = \"Discharging\" && $(cat /sys/class/power_supply/BAT0/capacity) -lt 10 ]];"
 	"then dunstify \"Battery at $(cat /sys/class/power_supply/BAT0/capacity)%!\"; fi; sleep 60; done", NULL,
 	"xset", "b", "off", NULL, "mpris-proxy", NULL, "udiskie", NULL, "dunst", NULL,
@@ -81,9 +81,6 @@ static const char *dmenucmd[]    = { "dmenu_run", "-m", dmenumon, "-fn", dmenufo
 static const char *termcmd[]     = { TERMINAL, NULL };
 static const char *floatingterm[]= { TERMINAL, "-t", "float", NULL };
 static const char *ranger[]      = { TERMINAL, "-e", "ranger", NULL };
-/* static const char *literature[]  = { TERMINAL, "-e", "ranger", "/home/tim/Literatur/", NULL }; */
-/* static const char *studying[]    = { TERMINAL, "-e", "ranger", "/home/tim/Studium/", NULL }; */
-/* static const char *julia[]       = { TERMINAL, "-e", "julia", NULL }; // Temporarily deactivated, because not needed*/
 static const char *python[]      = { TERMINAL, "-e", "ipython", NULL };
 static const char *htop[]        = { TERMINAL, "-e", "htop", NULL};
 static const char *screenshot[]  = { "spectacle",  NULL };
@@ -102,10 +99,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY|ShiftMask,             XK_t,      spawn,          {.v = floatingterm } },
 	{ MODKEY,                       XK_r,      spawn,          {.v = ranger } },
-	/* { MODKEY,                       XK_s,      spawn,          {.v = studying } }, */
-	/* { MODKEY,                       XK_l,      spawn,          {.v = literature } }, */
 	{ MODKEY|ShiftMask,             XK_p,      spawn,          {.v = python } },
-	/* { MODKEY|ShiftMask,             XK_j,      spawn,          {.v = julia } }, */
 	{ MODKEY,                       XK_h,      spawn,          {.v = htop } },
 	/* { MODKEY,                       XK_b,      togglebar,      {0} }, */
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
