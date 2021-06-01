@@ -16,14 +16,13 @@ static const int focusonwheel       = 0;
 static const char *fonts[]          = { "monospace:size=10" };
 static const char dmenufont[]       = "monospace:size=10";
 static const char col_gray1[]       = "#24292e";
-static const char col_gray2[]       = "#abc2da";
+static const char col_gray2[]       = "#4c535b";
 static const char col_gray3[]       = "#cccccc";
-static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#51afef";
+static const char col_gray4[]       = "#7e90a1";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray3, col_gray2, col_cyan  },
+	[SchemeSel]  = { col_gray3, col_gray2, col_gray4  },
 };
 
 static const char *const autostart[] = {
