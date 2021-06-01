@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 0;        /* border pixel of windows */
+static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int snap      = 0;       /* snap pixel */
 static const unsigned int gappih    = 60;       /* horiz inner gap between windows */
 static const unsigned int gappiv    = 60;       /* vert inner gap between windows */
@@ -15,9 +15,9 @@ static const int topbar             = 1;        /* 0 means bottom bar */
 static const int focusonwheel       = 0;
 static const char *fonts[]          = { "monospace:size=10" };
 static const char dmenufont[]       = "monospace:size=10";
-static const char col_gray1[]       = "#191c21";
-static const char col_gray2[]       = "#282c34";
-static const char col_gray3[]       = "#bbc2cf";
+static const char col_gray1[]       = "#24292e";
+static const char col_gray2[]       = "#abc2da";
+static const char col_gray3[]       = "#cccccc";
 static const char col_gray4[]       = "#eeeeee";
 static const char col_cyan[]        = "#51afef";
 static const char *colors[][3]      = {
@@ -28,8 +28,8 @@ static const char *colors[][3]      = {
 
 static const char *const autostart[] = {
 	"autorandr", "--change", NULL,
-	"hsetroot", "-cover", "/home/tim/Pictures/background.jpg", NULL,
-	"sh", "-c", "while :; do xsetroot -name \"$(LC_ALL=de_DE.utf8 date +\'%A, %d. %B %Y, %R\'), $(cat /sys/class/power_supply/BAT0/capacity)%\";"
+	"hsetroot", "-solid", "\"#15191B\"", NULL,
+	"sh", "-c", "while :; do xsetroot -name \"$(LC_ALL=de_DE.utf8 date +\'%A, %d. %B %Y, %R \'), $(cat /sys/class/power_supply/BAT0/status)%\";"
 	"if [[ \"$(cat /sys/class/power_supply/BAT0/status)\" = \"Discharging\" && $(cat /sys/class/power_supply/BAT0/capacity) -lt 10 ]];"
 	"then dunstify \"Battery at $(cat /sys/class/power_supply/BAT0/capacity)%!\"; fi; sleep 60; done", NULL,
 	"xset", "b", "off", NULL, "mpris-proxy", NULL, "udiskie", NULL, "dunst", NULL,
