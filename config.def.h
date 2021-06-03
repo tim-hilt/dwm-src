@@ -27,7 +27,7 @@ static const char *colors[][3]      = {
 
 static const char *const autostart[] = {
 	"autorandr", "--change", NULL,
-	"hsetroot", "-solid", "\'#15191B\'", NULL,
+	"hsetroot", "-solid", "#15191B", NULL,
 	"sh", "-c", "while :; do xsetroot -name \"$(LC_ALL=de_DE.utf8 date +\'%A, %d. %B %Y, %R\'), $(cat /sys/class/power_supply/BAT0/capacity)%\";"
 	"if [[ \"$(cat /sys/class/power_supply/BAT0/status)\" = \"Discharging\" && $(cat /sys/class/power_supply/BAT0/capacity) -lt 10 ]];"
 	"then dunstify \"Battery at $(cat /sys/class/power_supply/BAT0/capacity)%!\"; fi; sleep 60; done", NULL,
